@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { AiOutlineFundProjectionScreen, AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineFundProjectionScreen, AiOutlineHome } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-import { CgFileDocument } from 'react-icons/cg';
 import { BsChatDots } from 'react-icons/bs';
 import { route } from '../../routes/routes';
 
 function NavBar() {
     const navItems = [
         { title: 'Home', href: route.home, icon: AiOutlineHome },
-        { title: 'About', href: route.about, icon: AiOutlineUser },
+        // { title: 'About', href: route.about, icon: AiOutlineUser },
         { title: 'Activities', href: route.activities, icon: AiOutlineFundProjectionScreen },
-        { title: 'Resume', href: route.resume, icon: CgFileDocument },
+        // { title: 'Resume', href: route.resume, icon: CgFileDocument },
         { title: 'Contact', href: route.contact, icon: BsChatDots },
     ];
 

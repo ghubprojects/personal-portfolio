@@ -1,12 +1,40 @@
 import { Col, Container, Row } from 'react-bootstrap';
-import bitsOfCode from '../../assets/images/activities/blog.png';
-import chatify from '../../assets/images/activities/chatify.png';
-import editor from '../../assets/images/activities/codeEditor.png';
-import emotion from '../../assets/images/activities/emotion.png';
-import leaf from '../../assets/images/activities/leaf.png';
-import suicide from '../../assets/images/activities/suicide.png';
+
+import images from '../../assets/images';
 import { Particle } from '../../layouts/components';
 import ActivityCard from './ActivityCards';
+
+const activities = [
+    {
+        imgPath: images.vietnamTutor,
+        title: 'Gia su Viet',
+        position: 'Personal Tutor',
+        description: `I provided one-on-one English tutoring to a secondary student. I created customized lesson 
+        plans focused on grammar, pronunciation, and speaking skills. I regularly assessed progress, 
+        provided feedback, and adapted teaching strategies, encouraging a confident and passionate 
+        approach to language learning.`,
+    },
+    {
+        imgPath: images.englishCenter,
+        title: 'Tony English',
+        position: 'English Trainer',
+        description: `I have taught engaging lessons to students aged 6-12, creating an energetic learning 
+        environment. I developed tailored lesson plans focusing on grammar, pronunciation, speaking, 
+        and listening skills, incorporating interactive activities, games, and multimedia resources. 
+        Assessing progress regularly, I provided feedback and adapted teaching methodologies to meet 
+        individual needs while nurturing students' confidence and passion for language learning.`,
+    },
+    {
+        imgPath: images.vafProject,
+        title: 'Vietnam and Friends - OWOL',
+        position: 'Teaching Assistant',
+        description: `I supported English classes for children with visual impairments. I also participated in 
+        extracurricular activities organized by VAF, and helped out with various tasks in the office, such 
+        as printing braille books, developing communication plans, event planning, and leading project 
+        events. Through this experience, I learned many skills, such as attention to detail, carefulness, 
+        organizational thinking, logical thinking, and problem-solving skills.`,
+    },
+];
 
 function Activities() {
     return (
@@ -16,74 +44,19 @@ function Activities() {
                 <h1 className='project-heading'>
                     My Recent <strong className='purple'>Works </strong>
                 </h1>
-                <p style={{ color: 'white' }}>Here are a few Activities I've worked on recently.</p>
+                <p style={{ color: '#f4f4f4' }}>Here are a few activities I've worked on recently.</p>
                 <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
-                    <Col md={4} className='project-card'>
-                        <ActivityCard
-                            imgPath={chatify}
-                            isBlog={false}
-                            title='Chatify'
-                            description='Personal Chat Room or Workspace to share resources and hangout with friends build with react.js, Material-UI, and Firebase. Have features which allows user for realtime messaging, image sharing as well as supports reactions on messages.'
-                            ghLink='https://github.com/soumyajit4419/Chatify'
-                            demoLink='https://chatify-49.web.app/'
-                        />
-                    </Col>
-
-                    <Col md={4} className='project-card'>
-                        <ActivityCard
-                            imgPath={bitsOfCode}
-                            isBlog={false}
-                            title='Bits-0f-C0de'
-                            description='My personal blog page build with Next.js and Tailwind Css which takes the content from makdown files and renders it using Next.js. Supports dark mode and easy to write blogs using markdown.'
-                            ghLink='https://github.com/soumyajit4419/Bits-0f-C0de'
-                            demoLink='https://blogs.soumya-jit.tech/'
-                        />
-                    </Col>
-
-                    <Col md={4} className='project-card'>
-                        <ActivityCard
-                            imgPath={editor}
-                            isBlog={false}
-                            title='Editor.io'
-                            description='Online code and markdown editor build with react.js. Online Editor which supports html, css, and js code with instant view of website. Online markdown editor for building README file which supports GFM, Custom Html tags with toolbar and instant preview.Both the editor supports auto save of work using Local Storage'
-                            ghLink='https://github.com/soumyajit4419/Editor.io'
-                            demoLink='https://editor.soumya-jit.tech/'
-                        />
-                    </Col>
-
-                    <Col md={4} className='project-card'>
-                        <ActivityCard
-                            imgPath={leaf}
-                            isBlog={false}
-                            title='Plant AI'
-                            description="Used the plant disease dataset from Kaggle and trained a image classifer model using 'PyTorch' framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. I was able to achieve an accuracy of 98% by using Resnet34 pretrained model."
-                            ghLink='https://github.com/soumyajit4419/Plant_AI'
-                            demoLink='https://plant49-ai.herokuapp.com/'
-                        />
-                    </Col>
-
-                    <Col md={4} className='project-card'>
-                        <ActivityCard
-                            imgPath={suicide}
-                            isBlog={false}
-                            title='Ai For Social Good'
-                            description="Using 'Natural Launguage Processing' for the detection of suicide-related posts and user's suicide ideation in cyberspace  and thus helping in sucide prevention."
-                            ghLink='https://github.com/soumyajit4419/AI_For_Social_Good'
-                            // demoLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" <--------Please include a demo link here
-                        />
-                    </Col>
-
-                    <Col md={4} className='project-card'>
-                        <ActivityCard
-                            imgPath={emotion}
-                            isBlog={false}
-                            title='Face Recognition and Emotion Detection'
-                            description="Trained a CNN classifier using 'FER-2013 dataset' with Keras and tensorflow backened. The classifier sucessfully predicted the various types of emotions of human. And the highest accuracy obtained with the model was 60.1%.
-              Then used Open-CV to detect the face in an image and then pass the face to the classifer to predict the emotion of a person."
-                            ghLink='https://github.com/soumyajit4419/Face_And_Emotion_Detection'
-                            // demoLink="https://blogs.soumya-jit.tech/"      <--------Please include a demo link here
-                        />
-                    </Col>
+                    {activities.map((item) => (
+                        <Col md={4} className='project-card'>
+                            <ActivityCard
+                                imgPath={item.imgPath}
+                                isBlog={false}
+                                title={item.title}
+                                position={item.position}
+                                description={item.description}
+                            />
+                        </Col>
+                    ))}
                 </Row>
             </Container>
         </Container>
